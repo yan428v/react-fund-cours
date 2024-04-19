@@ -22,7 +22,7 @@ class ClassCounter extends React.Component {
             <div>
                 <h1>{this.state.count}</h1>
                 <button onClick={this.increment}>Increment</button>
-                <button onClick={decrement}>Decrement</button>
+                <button onClick={this.decrement}>Decrement</button>
             </div>
         )
     }
