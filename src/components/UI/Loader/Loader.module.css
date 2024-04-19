@@ -1,0 +1,29 @@
+.loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px dashed teal;
+    animation: rotate 1s infinite linear;
+    /*
+    animation: rotate 1s infinite linear; — применяет анимацию с названием rotate, которая выполняется за 1 секунду.
+    Анимация повторяется бесконечно (infinite) и изменяется с постоянной скоростью (linear).
+    */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+    to {
+        transform: rotate(360deg) scale(1.5);
+    }
+    /*
+    Это определение анимации rotate, которое состоит из двух ключевых кадров:
+from — начальное состояние элемента:
+transform: rotate(0deg) scale(1); — элемент начинает с нулевого угла поворота (rotate(0deg))
+ и стандартного масштаба (scale(1)).
+to — конечное состояние элемента:
+transform: rotate(360deg) scale(1.5); — элемент поворачивается на полный круг (360 градусов)
+ и увеличивается в масштабе в 1.5 раза.
+*/
+}
