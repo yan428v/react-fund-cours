@@ -31,6 +31,7 @@ function Posts() {
     })
 
     useEffect(() => {
+        console.log("useEffect работает")
         fetchPosts(limit, page);
     }, []);
 
