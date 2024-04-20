@@ -1,5 +1,16 @@
 import React, {useEffect, useState} from "react";
-import './styles/App.css';
+import '../styles/App.css'
+import PostService from "../API/PostService";
+import {getPageCount} from "../utils/pages";
+import MyButton from "../components/UI/button/MyButton";
+import MyModal from "../components/UI/MyModal/MyModal";
+import PostForm from "../components/PostForm";
+import PostFilter from "../components/PostFilter";
+import Loader from "../components/UI/Loader/Loader";
+import PostList from "../components/PostList";
+import Pagination from "../components/UI/pagination/Pagination";
+import {usePosts} from "../hooks/usePosts";
+import {useFetching} from "../hooks/useFetching";
 
 
 function Posts() {
@@ -51,7 +62,6 @@ function Posts() {
             />
             {postError &&
                 <h1>Произошла ошибка ${postError}</h1>
-
             }
             {isPostsLoading
                 ? <div style={{display: "flex", justifyContent: "center", marginTop: 50}}><Loader/></div>
