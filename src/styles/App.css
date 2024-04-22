@@ -23,6 +23,11 @@
     align-content: center;
 }
 
+.post__btns {
+    display: flex;
+
+}
+
 .remove-btn {
     margin-right: 0.5rem;
 }
