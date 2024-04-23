@@ -7,15 +7,21 @@ import Loader from "../components/UI/Loader/Loader";
 const PostIdPage = () => {
     const params = useParams();
     const [post, setPost] = useState({});
+    const [comments, setComments] = useState([]);
+
 
 
     const [fetchPostById, isLoading, error] = useFetching( async (id) => {
         const response = await PostService.getById(id);
         setPost(response.data);
     })
-
+    const [fetchComments, isComLoading, comError] = useFetching( async (id) => {
+        const response = await PostService.getCommentsByPostId(id);
+        setComments(response.data);
+    })
     useEffect(() => {
-        fetchPostById(params.id)
+        fetchPostById(params.id);
+        fetchComments(params.id)
     },[])
 
     return (
@@ -26,8 +32,88 @@ const PostIdPage = () => {
                     ? <Loader/>
                     : <div>{post.id}. {post.title}</div>
             }
+            <h1>
+                Комментарии:
+            </h1>
+            {
+                isComLoading
+                    ? <Loader/>
+                    : <div>
+                        {comments.map(com =>
+                            <div style={{margin: 20 }}>
+                                <h5>{com.email}</h5>
+                                <div>{com.body}</div>
+                            </div>
+                        )}
+                    </div>
+            }
+
         </div>
     );
 };
 
 export default PostIdPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
